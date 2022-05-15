@@ -1,30 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace BinaryTree
 {
-    public class Knot<T> where T : IComparable<T>
-    {
-        public Knot<T> Parent, Left, Right;
-        public int Level;
-        public T Val;
-    }
-
     public class Tree<T> where T : IComparable<T>
     {
         private Tree<T> _parent, _left, _right;
         private int _level;
         private T _val;
-
         private StringBuilder[] _array;
-        //private string[] array;
-        // private Knot<T> knot;
 
         public Tree(T val, Tree<T> parent = null)
         {
             if (parent == null) _level = 0;
-            // knot = new Knot<T>();
             _val = val;
             _parent = parent;
         }
@@ -121,7 +109,7 @@ namespace BinaryTree
             return true;
         }
 
-        private static bool RemoveRootLR(Tree<T> tree)
+        private static bool RemoveRootLr(Tree<T> tree)
         {
             var curTree = tree._right;
 
@@ -183,7 +171,7 @@ namespace BinaryTree
 
             //Удаляем узел, имеющий поддеревья с обеих сторон
             if (tree._right != null && tree._left != null)
-                return RemoveRootLR(tree);
+                return RemoveRootLr(tree);
 
             return false;
         }
@@ -206,7 +194,7 @@ namespace BinaryTree
                 CheckInequality(node);
         }
 
-        private int CheckInequality(Tree<T> node) => _allLevel > node._level ? _allLevel : _allLevel = node._level;
+        private  int CheckInequality(Tree<T> node) => _allLevel > node._level ? _allLevel : _allLevel = node._level;
 
         private void Print(Tree<T> node)
         {
