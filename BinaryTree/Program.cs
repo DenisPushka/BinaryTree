@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace BinaryTree
 {
@@ -17,8 +18,14 @@ namespace BinaryTree
 
             Console.WriteLine();
             var bTree = new BTree<int>(3);
+            // var stopwatch = new Stopwatch();
+            // stopwatch.Start();
+            
             foreach (var i in arrayData) 
                 bTree.AddRoot(i);
+            
+            // stopwatch.Stop();
+            // Console.WriteLine(stopwatch.ElapsedMilliseconds);
             bTree.Show();
             // var tree = new Tree<int>(arrayData[arrayData.Length / 2]);
             // foreach (var i in arrayData)
@@ -27,3 +34,6 @@ namespace BinaryTree
         }
     }
 }
+//    2000  5000 10000  50000
+// b+ 1     1    3      17
+// b  0     2    9      295
